@@ -6,6 +6,7 @@ using namespace std;
 int main() {
     
     vector<char> board = {'0', '1', '2', '3', '4', '5', '6', '7', '8'};
+
     draw();
     for (int i = 0; i < 5; i++) {
         char input;
@@ -17,7 +18,7 @@ int main() {
         board[position] = input;
         draw(board);
         if (check_board(board)) {
-            cout << "Game over!\n";
+            cout << "Game over! Player 1, YOU WIN!\n";
             break;
         }
         
@@ -27,8 +28,13 @@ int main() {
         board[position] = input;
         draw(board);
         if (check_board(board)) {
-            cout << "Game over!\n";
+            cout << "Game over! Player 2, YOU WIN!\n";
             break;
         }   
     }
+
+    if (!check_board(board)) {
+        cout << "BOOM! It's a draw!\n";
+    }
+
 }
